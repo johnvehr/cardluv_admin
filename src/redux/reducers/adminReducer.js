@@ -27,7 +27,7 @@ export const {adminInfo, pending} = adminReducer.actions
 export const retrieveAdminInfo = () => (dispatch,getState) => {
   dispatch(pending())
   async function callProfile(){
-  const response = await fetch('http://localhost:3001/admin/admins',{
+  const response = await fetch('https://cardluv-api.herokuapp.com/admin/admins',{
     method: 'GET',
     headers: Auth.fetchToken()
   })
