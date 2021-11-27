@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 import Auth from '../../auth'
+import {currEnv} from '../api/apiConfig'
 
 const initialState = {
   cards: [],
@@ -61,7 +62,7 @@ export const addNewCard = (card) => (dispatch, getState) => {
   dispatch(pending())
   async function callApi() {
 
-    const response = await fetch('http://localhost:3001/admin/cards', {
+    const response = await fetch(`${currEnv}/admin/cards`, {
       method: 'POST',
       headers: Auth.fetchToken(),
       body: JSON.stringify(card)
@@ -78,7 +79,7 @@ export const addNewCard = (card) => (dispatch, getState) => {
 export const retrieveCards = () => (dispatch, getState) => {
   dispatch(pending())
   async function callApi() {
-    const response = await fetch('http://localhost:3001/admin/cards', {
+    const response = await fetch(`${currEnv}/admin/cards`, {
       method: 'GET',
       headers: Auth.fetchToken()
     })
@@ -92,7 +93,7 @@ export const retrieveCards = () => (dispatch, getState) => {
 export const retrieveCard = (id) => (dispatch, getState) => {
   dispatch(pending())
   async function callApi() {
-    const response = await fetch(`http://localhost:3001/admin/cards/${id}`, {
+    const response = await fetch(`${currEnv}/admin/cards/${id}`, {
       method: 'GET',
       headers: Auth.fetchToken()
     })
@@ -107,7 +108,7 @@ export const retrieveCard = (id) => (dispatch, getState) => {
 export const deleteCard = (id) => (dispatch, getState) => {
   dispatch(pending)
   async function callApi(id){
-  const response = await fetch(`http://localhost:3001/admin/cards/${id}`, {
+  const response = await fetch(`${currEnv}/admin/cards/${id}`, {
     method: 'DELETE',
     headers: Auth.fetchToken()
   })

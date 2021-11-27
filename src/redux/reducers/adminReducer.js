@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import Auth from '../../auth'
+import {currEnv} from '../api/apiConfig'
 
 const initialState = {
   pending: false,
@@ -27,7 +28,7 @@ export const {adminInfo, pending} = adminReducer.actions
 export const retrieveAdminInfo = () => (dispatch,getState) => {
   dispatch(pending())
   async function callProfile(){
-  const response = await fetch('https://cardluv-api.herokuapp.com/admin/admins',{
+  const response = await fetch(`${currEnv}/admin/admins`,{
     method: 'GET',
     headers: Auth.fetchToken()
   })

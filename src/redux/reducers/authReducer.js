@@ -3,6 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 import Auth from '../../auth'
 import Error from '../api/error'
 
+import {currEnv} from '../api/apiConfig'
+
 const initialState = {
   user: {},
   loggedIn: false,
@@ -37,7 +39,7 @@ export const {signIn,pending,setErrors} = authReducer.actions
 export const signInAdmin = (user, redirectCallback) => (dispatch, getState) => {
   dispatch(pending())
   async function callApi() {
-    const response = await fetch('https://cardluv-api.herokuapp.com/admin/sign_in', {
+    const response = await fetch(`${currEnv}/admin/sign_in`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
