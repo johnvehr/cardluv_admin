@@ -191,7 +191,7 @@ const NewCard = () => {
           type="text"
           name="inside_message"
           onChange={(e) => setInsideMessage(e.target.value)}
-          value={title}
+          value={inside_message}
           placeholder="Inside Message" />
   </Form.Item>
     </Form>
