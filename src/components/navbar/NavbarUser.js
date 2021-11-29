@@ -25,17 +25,13 @@ const NavbarUser = () => {
         </Dropdown.Toggle>
       </span>
       <Dropdown.Menu drop="end">
-        <Dropdown.Item>
-          <User size={18} className="align-middle me-2" />
-          Profile
-        </Dropdown.Item>
+
         <Dropdown.Item>
           <PieChart size={18} className="align-middle me-2" />
-          Analytics
+          Dashboard
         </Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item>Settings & Privacy</Dropdown.Item>
-        <Dropdown.Item>Help</Dropdown.Item>
+
         <Dropdown.Item>Sign out</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

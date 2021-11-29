@@ -58,11 +58,12 @@ export const addNewImage = (image, cloudinaryCallback) => (dispatch, getState) =
   callApi()
 }
 
-export const addNewCard = (card) => (dispatch, getState) => {
+export const addNewCard = (card, designer) => (dispatch, getState) => {
+  let designerId = designer
   dispatch(pending())
-  async function callApi() {
+  async function callApi(designerId) {
 
-    const response = await fetch(`${currEnv}/admin/cards`, {
+    const response = await fetch(`${currEnv}/admin/cards?designer_id=${designerId}`, {
       method: 'POST',
       headers: Auth.fetchToken(),
       body: JSON.stringify(card)
@@ -73,7 +74,7 @@ export const addNewCard = (card) => (dispatch, getState) => {
     dispatch(addCard(data.card))
 
   }
-  callApi()
+  callApi(designerId)
 }
 
 export const retrieveCards = () => (dispatch, getState) => {

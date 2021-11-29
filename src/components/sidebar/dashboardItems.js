@@ -19,8 +19,12 @@ const pagesSection = [
     href: "/admin",
     icon: Sliders,
     title: "Operations",
-    badge: "4",
+    badge: "5",
     children: [
+      {
+        href: "/admin/designers",
+        title: "Designers",
+      },
       {
         href: "/admin/cards",
         title: "Cards",

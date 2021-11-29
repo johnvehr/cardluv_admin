@@ -9,6 +9,8 @@ import AdminCards from './pages/admin/cards/cards'
 import AddCard from './pages/admin/cards/new'
 import CardDetail from './pages/admin/cards/cardDetail'
 import Customers from './pages/admin/customers/customers'
+import AdminDesigners from './pages/admin/designers/designers'
+import AddDesigner from './pages/admin/designers/new'
 
 const routes = [
   {
@@ -28,6 +30,14 @@ const routes = [
       {
         path: '/admin/dashboard',
         element: <AdminDashboard />
+      },
+      {
+        path: '/admin/designers',
+        element: <AdminDesigners />
+      },
+      {
+        path: '/admin/designers/new',
+        element: <AddDesigner />
       },
       {
         path: '/admin/cards',

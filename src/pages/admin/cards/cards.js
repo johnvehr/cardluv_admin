@@ -71,7 +71,7 @@ const Cards = () => {
       {cards &&
         cards.map((card) => (
           <tr>
-            <td><img width="48" height="48" src={card.image} /></td>
+            <td><img width="98" height="118" src={card.image} /></td>
             <td className="d-none d-xl-table-cell">{card.title}</td>
             <td className="d-none d-xl-table-cell">
               <Badge bg={card.status == 'live' ? 'primary' : 'secondary'}>{card.status}</Badge>

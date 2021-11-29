@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {Form, Input, Button,Select,Upload,InputNumber} from 'antd'
 import {Card} from 'react-bootstrap'
 import {addNewCard, addNewImage} from '../../../redux/reducers/cardReducer'
+import {retrieveDesigners} from '../../../redux/reducers/designerReducer'
 
 const NewCard = () => {
   const {Option} = Select;
   const dispatch = useDispatch()
 
+  const designers = useSelector(state => state.designer.designers)
   //Card Image
   const [card_image] = useSelector(state => state.card.card_image)
   const [image_url, setImageUrl] = useState('')
@@ -20,10 +22,16 @@ const NewCard = () => {
   const [sku, setSku] = useState('')
 
   //Card Details
+  const [designer, setDesigner] = useState('')
   const [title, setTitle] = useState('')
   const [tags, setTags] = useState([])
+  const [inside_message, setInsideMessage] = useState('')
 
   const setStatusAsInteger = {'Live': 0, 'NotLive': 1}
+
+  useEffect(() => {
+    dispatch(retrieveDesigners())
+  },[])
 
   const cloudinaryCallback = (imageUrl) => {
     setImageUrl(imageUrl)
@@ -47,9 +55,10 @@ const NewCard = () => {
       image: image_url,
       inventory: inventory,
       tag_list: tags,
-      sku: sku
+      sku: sku,
+      inside_message: inside_message
     }}
-    dispatch(addNewCard(card))
+    dispatch(addNewCard(card,designer))
   }
 
   const setCardPrice = (value) =>{
@@ -71,6 +80,10 @@ const NewCard = () => {
 
   const setInventoryAmount = (value) => {
     setInventory(value)
+  }
+
+  const setDesignerId = (value) => {
+    setDesigner(value)
   }
 
   const onPreview = async file => {
@@ -141,6 +154,23 @@ const NewCard = () => {
 
   <Form.Item>
   <Select
+    size='large'
+    placeholder="Select Card Designer"
+    onChange={setDesignerId}
+    style={{ width: '150px' }}
+  >
+  {
+    designers &&
+    designers.map((designer) => (
+      <Option value={designer.id}>{designer.name}</Option>
+    ))
+  }
+
+  </Select>
+  </Form.Item>
+
+  <Form.Item>
+  <Select
     mode="multiple"
     size='large'
     placeholder="Please select Card Categories"
@@ -154,6 +184,15 @@ const NewCard = () => {
     <Option key='Holiday'>Holiday</Option>
     <Option key='Thank You'>Thank You</Option>
   </Select>
+  </Form.Item>
+  <Form.Item>
+    <Input
+          size="large"
+          type="text"
+          name="inside_message"
+          onChange={(e) => setInsideMessage(e.target.value)}
+          value={title}
+          placeholder="Inside Message" />
   </Form.Item>
     </Form>
   </Card.Body>
@@ -175,6 +214,7 @@ const NewCard = () => {
         <Option value="5.75">$6.75</Option>
         <Option value="6.75">$6.75</Option>
         <Option value="6.99">$6.99</Option>
+        <Option value="5.95">$5.95</Option>
       </Select>
     </Form.Item>
     <Form.Item>
