@@ -30,11 +30,15 @@ const pagesSection = [
         title: "Cards",
       },
       {
-        href: "/admin/cards",
+        href: "/admin/bracelets",
         title: "Bracelets",
       },
       {
-        href: "/admin/cards",
+        href: '/admin/giftcards',
+        title: 'Gift Cards'
+      },
+      {
+        href: "/admin/orders",
         title: "Orders",
       },
       {

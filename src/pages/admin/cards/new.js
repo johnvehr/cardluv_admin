@@ -182,6 +182,7 @@ const NewCard = () => {
     <Option key='Thanksgiving'>Thanksgiving</Option>
     <Option key='New Home'>New Home</Option>
     <Option key='Holiday'>Holiday</Option>
+    <Option key='Valentine'>Valentine</Option>
     <Option key='Thank You'>Thank You</Option>
   </Select>
   </Form.Item>
@@ -210,11 +211,11 @@ const NewCard = () => {
 
     <Form.Item>
       <Select size="large" placeholder='Price' style={{ width: 120 }} onChange={setCardPrice}>
-        <Option value="4.75">$6.75</Option>
-        <Option value="5.75">$6.75</Option>
-        <Option value="6.75">$6.75</Option>
-        <Option value="6.99">$6.99</Option>
-        <Option value="5.95">$5.95</Option>
+        <Option value="475">$6.75</Option>
+        <Option value="575">$6.75</Option>
+        <Option value="675">$6.75</Option>
+        <Option value="699">$6.99</Option>
+        <Option value="595">$5.95</Option>
       </Select>
     </Form.Item>
     <Form.Item>
