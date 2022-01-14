@@ -48,16 +48,13 @@
     "sass": "1.42.1"
   },
   "scripts": {
-    "sass:build": "sass src/assets/scss:public/css --load-path node_modules",
-    "sass:watch": "sass --watch src/assets/scss:public/css --load-path node_modules",
-    "sass:autoprefixer": "postcss public/css/*.css --use autoprefixer -d public/css",
-    "build:css": "npm-run-all sass:build sass:autoprefixer",
-    "build:js": "react-scripts build",
-    "watch:css": "npm-run-all sass:watch",
-    "watch:js": "react-scripts start",
-    "start": "npm-run-all -p build:css watch:*",
-    "build": "npm-run-all build:css build:js"
-  },
+"dev": "react-scripts start",
+"start": "serve -s build",
+"build": "react-scripts build",
+"test": "react-scripts test --env=jsdom",
+"eject": "react-scripts eject",
+"heroku-postbuild": "npm run build"
+},
   "eslintConfig": {
     "extends": "react-app"
   },
