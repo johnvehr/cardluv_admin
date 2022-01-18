@@ -3,4 +3,4 @@ export const apiEnv = {
   PROD: 'https://cardluv-api.herokuapp.com'
 }
 export const currApi = `api/v1`
-export const currEnv = apiEnv.PROD
+export const currEnv = apiEnv.DEV

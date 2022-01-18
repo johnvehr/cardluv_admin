@@ -1,2 +1,41 @@
 // AppStack
 @import "app";
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bellota+Text:wght@300&family=Butterfly+Kids&family=Happy+Monkey&family=Indie+Flower&family=Just+Another+Hand&family=Long+Cang&family=Loved+by+the+King&family=Nixie+One&family=Oregano&family=Pompiere&family=Reenie+Beanie&family=Sacramento&family=Shadows+Into+Light&family=Shrikhand&family=Waiting+for+the+Sunrise&display=swap');
+//Global
+
+.message{
+  white-space: pre-line;
+  font-size: 1.3rem;
+}
+
+.message-box{
+  width: 288px; //3inches
+  height: 384px; //4 inches
+  padding: 17px;
+}
+
+.shadows-into-light{
+  font-family: 'Shadows Into Light'
+}
+.long-cang{
+  font-family: 'Long Cang'
+}
+.sacramento{
+  font-family: 'Sacramento'
+}
+.reenie-beanie{
+  font-family: 'Reenie Beanie'
+}
+.shrikhand{
+  font-family: 'Shrikhand'
+}
+.architects{
+  font-family: 'Architects Daughter'
+}
+.nixie {
+  font-family: 'Nixie One'
+}
+.butterfly-kids {
+  font-family: 'Butterfly Kids'
+}

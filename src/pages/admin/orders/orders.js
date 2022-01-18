@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch,useSelector} from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 import { Container, Row, Col, Badge, Card, Dropdown, Table,Button } from "react-bootstrap";
 import {Drawer} from 'antd'
 import {retrieveOrders} from '../../../redux/reducers/orderReducer'
@@ -10,7 +11,8 @@ import ReactToPrint from 'react-to-print';
 const Orders = () => {
   const dispatch = useDispatch()
   const orders = useSelector(state => state.order.orders)
-
+  const navigate = useNavigate()
+  
   useEffect(() => {
     dispatch(retrieveOrders())
   },[])
@@ -52,7 +54,7 @@ const Orders = () => {
       orders.map((order) => (
         <tr>
 
-          <td className="d-none d-xl-table-cell">{order.created_at}</td>
+          <td className="d-none d-xl-table-cell" onClick={()=> navigate(`/admin/orders/${order.id}`)}>{order.created_at}</td>
 
 
         </tr>

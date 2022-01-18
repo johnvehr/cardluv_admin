@@ -20,6 +20,7 @@ import GiftCards from './pages/admin/gift_cards/giftcards'
 import GiftCard from './pages/admin/gift_cards/giftcard'
 import NewGiftCard from './pages/admin/gift_cards/new'
 import Orders from './pages/admin/orders/orders'
+import Order from './pages/admin/orders/order'
 
 const routes = [
   {
@@ -99,6 +100,10 @@ const routes = [
       {
         path: '/admin/orders',
         element: <Orders />
+      },
+      {
+        path: '/admin/orders/:id',
+        element: <Order />
       }
     ]
   }
